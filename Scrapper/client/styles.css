@@ -1,0 +1,17 @@
+.container {
+    text-align: center;
+}
+
+.card {
+    position: relative;
+}
+
+.backdrop {
+    width: auto;
+    height: auto;
+    background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.9));
+}
+
+.card-img-overlay {
+    text-align: center;
+}
