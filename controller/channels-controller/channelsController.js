@@ -14,6 +14,7 @@ const vangardController = async (req, res) => {
 		const latestNews = $("#latest-news-list li");
 
 		currentNews.each((i, el) => {
+			currentNewsImg = $(el).find(".rtp-post-thumbnail a img").attr("src");
 			currentNewsTitle = $(el).find(".rtp-post-content header h2 a").text();
 			currentNewsLink = $(el)
 				.find(".rtp-post-content header h2 a")
@@ -25,14 +26,13 @@ const vangardController = async (req, res) => {
 			currentNewsTime = $(el)
 				.find(".rtp-post-content header span .rtp-meta-time")
 				.text();
-			currentNewsImg = $(el).find(".rtp-post-thumbnail a img").attr("src");
 
 			newdate = Date.now();
 
 			const currentNews = {
+				currentNewsImg,
 				currentNewsTitle,
 				currentNewsLink,
-				currentNewsImg,
 				currentNewsDesc,
 				currentNewsDate,
 				currentNewsTime,
