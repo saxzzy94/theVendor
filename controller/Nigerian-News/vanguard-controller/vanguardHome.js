@@ -13,7 +13,8 @@ const vanguardHome = async () => {
 
 	currentNews.each((i, el) => {
 		newsPaper = "Vanguard";
-
+		logo =
+			"https://pbs.twimg.com/profile_images/3198755685/61b5c08ea92f39bc7f164c1bfa162b59_400x400.jpeg";
 		currentNewsTitle = $(el).find(".rtp-post-content header h2 a").text();
 		currentNewsImg = $(el).find(".rtp-post-thumbnail a img").attr("src");
 		currentNewsLink = $(el).find(".rtp-post-content header h2 a").attr("href");
@@ -25,7 +26,7 @@ const vanguardHome = async () => {
 			.find(".rtp-post-content header span .rtp-meta-time")
 			.text();
 
-		randomTime = Math.floor(Math.random() * 100);
+		randomTime = Math.floor(Math.random() * 1000000);
 		let today = new Date();
 		let dd = String(today.getDate()).padStart(2, "0");
 		let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
@@ -37,6 +38,7 @@ const vanguardHome = async () => {
 
 		v_homeNewsArray.push({
 			newsPaper,
+			logo,
 			currentNewsTitle,
 			currentNewsImg,
 			currentNewsLink,

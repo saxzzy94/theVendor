@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const thenationController = require("../controller/thenation-controller/thenationController");
+const thenationController = require("../../../controller/Nigerian-News/thenation-controller/thenationController");
 
 router.route("/").get(thenationController);
 

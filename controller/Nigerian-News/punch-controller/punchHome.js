@@ -1,6 +1,5 @@
 const cheerio = require("cheerio");
 const rp = require("request-promise");
-
 const punchHome = async () => {
 	p_homeNews = [];
 	const response1 = await rp({
@@ -12,6 +11,8 @@ const punchHome = async () => {
 
 	currentNewsElement.each((i, el) => {
 		newsPaper = "Punch";
+		logo =
+			"https://cdn.punchng.com/wp-content/uploads/2020/01/06142718/New-Logo.png";
 		backgroundImage = $$(el)
 			.find("a .filler div .blurry")
 			.css("background-image");
@@ -30,7 +31,7 @@ const punchHome = async () => {
 		currentNewsImg2 =
 			backgroundImage.substring(5, backgroundImage.length - 12) + ".png";
 
-		randomTime = Math.floor(Math.random() * 100);
+		randomTime = Math.floor(Math.random() * 1000000);
 		let today = new Date();
 		let dd = String(today.getDate()).padStart(2, "0");
 		let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
@@ -42,6 +43,7 @@ const punchHome = async () => {
 
 		p_homeNews.push({
 			newsPaper,
+			logo,
 			currentNewsImg,
 			currentNewsImg2,
 			currentNewsTitle,

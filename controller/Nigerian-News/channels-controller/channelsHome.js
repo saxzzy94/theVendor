@@ -13,13 +13,16 @@ const channelsHome = async () => {
 
 	currentNews.each(async (i, el) => {
 		try {
+			logo =
+				"https://www.channelstv.com/wp-content/themes/channels2016/ctv-logo.png";
+
 			newsPaper = "channels";
 			currentNewsImg1 = await $(el).find("a div img").attr("srcset");
 
 			currentNewsTitle = $(el).find(".panel-txt.panel-txt_default h3").text();
 			currentNewsLink = $(el).find("a").attr("href");
 
-			randomTime = Math.floor(Math.random() * 100);
+			randomTime = Math.floor(Math.random() * 1000000);
 
 			let today = new Date();
 			let dd = String(today.getDate()).padStart(2, "0");
@@ -38,6 +41,7 @@ const channelsHome = async () => {
 			console.log(error);
 		}
 		ch_homeNewsArray.push({
+			logo,
 			newsPaper,
 			currentNewsImg,
 			currentNewsTitle,

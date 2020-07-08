@@ -1,7 +1,7 @@
 const cheerio = require("cheerio");
 const rp = require("request-promise");
 
-const thisdayHome = async (req, res) => {
+const thisdayHome = async () => {
 	th_homeArray = [];
 	const response = await rp({
 		uri: "https://www.thisdaylive.com/",
@@ -12,6 +12,8 @@ const thisdayHome = async (req, res) => {
 	const latestNews = $(".td_module_6.td_module_wrap.td-animation-stack");
 
 	latestNews.each((i, el) => {
+		logo =
+			"https://pbs.twimg.com/profile_images/2478953412/tze8i93mwynorieaezpq_400x400.jpeg";
 		newsPaper = "Thisday";
 		currentNewsTitle = $(el).find("h3 a").text();
 		currentNewsTime = $(el)
@@ -23,7 +25,7 @@ const thisdayHome = async (req, res) => {
 		currentNewsImg =
 			currentNewsImg1.substring(0, currentNewsImg1.length - 11) + ".jpg";
 
-		randomTime = Math.floor(Math.random() * 100);
+		randomTime = Math.floor(Math.random() * 1000000);
 		let today = new Date();
 		let dd = String(today.getDate()).padStart(2, "0");
 		let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
@@ -35,6 +37,7 @@ const thisdayHome = async (req, res) => {
 
 		th_homeArray.push({
 			newsPaper,
+			logo,
 			currentNewsImg,
 			currentNewsTitle,
 			currentNewsLink,

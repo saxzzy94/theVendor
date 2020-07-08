@@ -1,14 +1,14 @@
-const punchHome = require("../controller/punch-controller/punchHome");
-const vanguardHome = require("../controller/vanguard-controller/vanguardHome");
-const thisdayHome = require("../controller/thisday-controller/thisdayHome");
-const channelsHome = require("../controller/channels-controller/channelsHome");
-const thenationHome = require("../controller/thenation-controller/thenationHome");
-const guardianHome = require("../controller/guardian-controller/guardianHome");
+const punchHome = require("../../controller/Nigerian-News/punch-controller/punchHome");
+const vanguardHome = require("../../controller/Nigerian-News/vanguard-controller/vanguardHome");
+const thisdayHome = require("../../controller/Nigerian-News/thisday-controller/thisdayHome");
+const channelsHome = require("../../controller/Nigerian-News/channels-controller/channelsHome");
+const thenationHome = require("../../controller/Nigerian-News/thenation-controller/thenationHome");
+const guardianHome = require("../../controller/Nigerian-News/guardian-controller/guardianHome");
 
-module.exports = homee = async (req, res) => {
+module.exports = home = async (req, res) => {
 	try {
 		let newArray = [];
-		// Vanguards
+		// Vanguards;
 		const vanguardNewsArray = await vanguardHome();
 		vanguardNewsArray.forEach(v_currentNews => {
 			newArray.push(v_currentNews);

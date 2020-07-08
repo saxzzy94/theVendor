@@ -18,6 +18,8 @@ const thenationHome = async () => {
 
 	currentNews.each((i, el) => {
 		newsPaper = "The nation";
+		logo =
+			"https://pbs.twimg.com/profile_images/1102946027080949761/QGa4_gxB_400x400.png";
 		currentNewsImg = $(el)
 			.find(".jeg_thumb a .thumbnail-container.animate-lazy.size-715  img")
 			.attr("data-src");
@@ -33,7 +35,7 @@ const thenationHome = async () => {
 			.find(".rtp-post-content header span .rtp-meta-time")
 			.text();
 
-		randomTime = Math.floor(Math.random() * 100);
+		randomTime = Math.floor(Math.random() * 1000000);
 		let today = new Date();
 		let dd = String(today.getDate()).padStart(2, "0");
 		let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
@@ -45,6 +47,7 @@ const thenationHome = async () => {
 
 		tn_homeNewsArray.push({
 			newsPaper,
+			logo,
 			currentNewsImg,
 			currentNewsTitle,
 			currentNewsLink,
